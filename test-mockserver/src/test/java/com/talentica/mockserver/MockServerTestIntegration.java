@@ -18,9 +18,9 @@ import org.mockserver.model.Parameter;
 import junit.framework.TestCase;
 
 /**
- * Unit test for simple App.
+ * Mock server needs to be up and running to be able to run this integration test suite.
  */
-public class MockServerTest extends TestCase {
+public class MockServerTestIntegration extends TestCase {
 
 	public void testMockServer() {
 		new MockServerClient("127.0.0.1", 1090)
@@ -50,23 +50,4 @@ public class MockServerTest extends TestCase {
 						.withDelay(new Delay(TimeUnit.MILLISECONDS, 1)));
 	}
 
-	public void testForwardAsIs() {
-		new MockServerClient("127.0.0.1", 1090)
-				.when(request().withMethod("GET").withPath("/nomock")
-						.withQueryStringParameter(
-								"host")
-						.withQueryStringParameter(
-								"port"),
-						Times.unlimited())
-				.forward(
-						HttpForward.forward()
-								.withHost(
-										request().getQueryStringParameters().stream()
-												.filter(it -> !it.getName().getValue().equals("host")).findFirst().get()
-												.getName().toString())
-								.withPort(Integer.parseInt(request().getQueryStringParameters().stream()
-										.filter(it -> !it.getName().getValue().equals("port")).findFirst().get()
-										.getName().toString()))
-								.withScheme(Scheme.HTTP));
-	}
 }
