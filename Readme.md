@@ -3,10 +3,10 @@
 This repo contains POCs to evaluate http request response mocking frameworks based on following requirements.
 
 
-| Criteria/Tools 	| GET Request 	| POST Request 		| Form Post with redirection 	| REST Based call [JSON] 	| SOAP API Call 	| Callbacks 	|
+| Criteria/Tools 	| GET Request 	| POST Request 		| Form Post with redirection 	| REST Based call [JSON] 	| SOAP API Call (over HTTP) 	| Callbacks 	|
 |----------------	|:-----------:	|:-------------:	|:----------------------------:	|:------------------------:	|:---------------:	|:-----------:	|
 | Mocky.io       	|             	|              		|                            	|                        	|               	|           	|
-| Mockserver     	|      Y      	|       Y      		|              Y             	|            Y           	|               	|           	|
+| Mockserver     	|      Y      	|       Y      		|              Y             	|            Y           	| Y |      Y     	|
 | wiremock       	|             	|              		|                            	|                        	|               	|           	|
 
 
